@@ -7,7 +7,9 @@ describe User do
   it "encrypts a password" do
   	
   	fish = BCrypt::Engine.hash_secret("123", subject.salt)
+  	
   	puts subject.email
+  	
   	expect(subject.salt).not_to be_nil
   	expect(subject.fish).to eq(fish)
   end
@@ -19,7 +21,8 @@ describe User do
   	unauthuser = User.authenticate(subject.email, "")
 
   	puts subject.email
-  	expect(authuser).to eq(subject)
+  	
+  	expect(authuser).to eq(user)
   	expect(unauthuser).to be_nil
   end
 end
