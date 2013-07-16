@@ -7,10 +7,10 @@ class User < ActiveRecord::Base
 	validates :password_confirmation, presence: true
 
 	def self.authenticate(email, password)
-		user=User.find_by(email: email)
+		user = User.find_by(email: email)
 
 		if user
-			fish =BCrypt::Engine.hash_secret(password, user.salt)
+			fish = BCrypt::Engine.hash_secret(password, user.salt)
 			if user.fish == fish
 				 return user
 			end
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 	private
 
 	def encrypt_password
-		self.salt =BCrypt::Engine.generate_salt
-		self.fish =BCrypt::Engine.hash_secret(password, self.salt)
+		self.salt = BCrypt::Engine.generate_salt
+		self.fish = BCrypt::Engine.hash_secret(password, self.salt)
 	end
 end
