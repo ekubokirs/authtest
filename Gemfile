@@ -14,7 +14,7 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'jasmine'
-  gem 'faker'
+  gem 'ffaker'
   gem 'fabrication'
 end
 
