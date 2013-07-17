@@ -24,12 +24,14 @@ describe SessionsController do
 
       expect(response).to render_template("new")
     end
-    
+
     it "sets code and expires_at for a password reset request" do
       post("create", email: email, password: "")
-
-      expect(user.code).not_to be_nil
-      expect(user.expires_at).not_to be_nil
+      
+      pwresetuser = User.first
+      
+      expect(pwresetuser.code).not_to be_nil
+      expect(pwresetuser.expires_at).not_to be_nil
     end
   end 
 end

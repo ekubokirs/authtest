@@ -11,5 +11,7 @@ WDIAuthtest::Application.routes.draw do
   delete 'logout'=> "sessions#destroy"
   get 'logout'=> "sessions#destroy"
 
+  resources :users
+
   root 'site#index'
 end
