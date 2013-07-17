@@ -3,7 +3,8 @@
 <% @users.each do |user|%>
 
 	<p>
-		<%= link_to user.email, user %>
+		<%= link_to user.email, user %><br>
+		<!-- <a href="/users/<%=user.id %>"> <%= user.email %> </a> -->
 	</p>
 
 <% end %>
