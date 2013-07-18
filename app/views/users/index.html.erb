@@ -2,6 +2,10 @@
 	<div class="large-12 columns">
 		<h1>Dem Users</h1>
 
+		<p styl="float:right">
+			<%= link_to "Add a user", new_user_path %>
+		</p>
+
 		<table class="table">
 			<tbody>
 				<% @users.each do |user|%>
@@ -9,6 +13,9 @@
 						<td><%= link_to user.email, user %></td>
 							<!-- <br> -->
 							<!-- <a href="/users/<%=user.id %>"> <%= user.email %> </a> -->
+						<td>
+              <%= link_to "edit", edit_user_path(user) %>
+            </td>
 						<td> <%= link_to "delete", user, method: :delete, confirm: "Are you sure?" %></td>
 					</tr>
 				<% end %>

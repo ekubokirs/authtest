@@ -5,6 +5,8 @@ WDIAuthtest::Application.routes.draw do
   
   
   resource :sessions, only: [ :new, :create, :destroy]
+  resource :password, only: [ :update]
+  get "reset/:code" => "password#edit"
 
   get 'login' =>"sessions#new"
   post 'login' =>"sessions#create"
